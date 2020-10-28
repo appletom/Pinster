@@ -1,0 +1,26 @@
+{
+  "name": "pinster",
+  "version": "1.0.0",
+  "description": "DIY Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appletom/Pinster.git"
+  },
+  "author": "Pinster Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appletom/Pinster/issues"
+  },
+  "homepage": "https://github.com/appletom/Pinster#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
