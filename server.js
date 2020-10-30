@@ -1,17 +1,17 @@
 require("dotenv").config();
 
-// require express
-const express = require('express')
-const app = express()
-
-//simple server running on PORT 3000
-const port = 3000
-
 //require body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+const express = require('express')
+const app = express()
+//simple server running on PORT 3000
+const port = 3000
 
+app.use("/css", express.static(__dirname + "/public/css"))
+app.use("/", express.static(__dirname + "/public/html"))
+app.use("/js", express.static(__dirname + "/js"));
 
 app.get('/', function (req, res) {
     res.send('PONG')
@@ -19,10 +19,6 @@ app.get('/', function (req, res) {
 
 
 
-//connect server to public folder and files
-app.use("/", express.static(__dirname + "/public"));
-app.use("/css", express.static(__dirname + "/css"));
-app.use("/js", express.static(__dirname + "/js"));
 
 
 
