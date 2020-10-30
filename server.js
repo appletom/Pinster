@@ -1,4 +1,9 @@
-require("dotenv").config()
+require("dotenv").config();
+
+//require body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 const express = require('express')
 const app = express()
 const tumblrApi = require('./server/tumblrApi/tmblrAuth')
@@ -9,7 +14,7 @@ const port = 3000
 app.use("/app", express.static(__dirname + "/public/app"))
 app.use("/css", express.static(__dirname + "/public/css"))
 app.use("/", express.static(__dirname + "/public/html"))
-
+app.use("/js", express.static(__dirname + "/js"));
 
 
 
@@ -17,6 +22,16 @@ app.use("/", express.static(__dirname + "/public/html"))
 app.get('/', function (req, res) {
     res.send('PONG')
 })
+
+
+
+
+
+
+//connect server to api routers
+const apiRouters = require("./apiRoutes/routers");
+app.use("/apiRoutes/routers", apiRouters)
+
 
 
 
