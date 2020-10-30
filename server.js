@@ -33,8 +33,6 @@ app.use("/apiRoutes/routers", apiRouters)
 
 
 
-
-
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
 })
