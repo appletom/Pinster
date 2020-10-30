@@ -1,12 +1,14 @@
 require("dotenv").config();
 
-//require body-parser
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+
 
 const express = require('express')
 const app = express()
-const tumblrApi = require('./server/tumblrApi/tmblrAuth')
+const tumblrApi = require('./apiRoutes/tumblr')
+//require body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+const fetch = require('node-fetch');
 //simple server running on PORT 3000
 const port = 3000
 
@@ -14,7 +16,7 @@ const port = 3000
 app.use("/app", express.static(__dirname + "/public/app"))
 app.use("/css", express.static(__dirname + "/public/css"))
 app.use("/", express.static(__dirname + "/public/html"))
-app.use("/js", express.static(__dirname + "/js"));
+
 
 
 
@@ -23,7 +25,7 @@ app.get('/', function (req, res) {
     res.send('PONG')
 })
 
-
+tumblrApi(app, fetch);
 
 
 
