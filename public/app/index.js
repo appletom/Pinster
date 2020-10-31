@@ -28,8 +28,11 @@ getBlogs();
 
 
 // add new project to home page
+//function clickNewProject (project) {
+
 let addNewProject = document.getElementByClass('add-new-project');
-let newProject = document.getElementById('newProject');
+let newProject = document.getElementById('#newProject');
 addNewProject.onclick = function () {
     newProject.style.display = "block";
 }
+//}

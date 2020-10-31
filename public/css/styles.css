@@ -34,3 +34,10 @@ body, html {
     padding: 10px;
 }
 
+.browse-projects {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 2px;
+    margin: 2%;
+}
