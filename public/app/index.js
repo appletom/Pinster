@@ -25,3 +25,11 @@ function renderBlogs(blogArray){
     return blogHTML;
 }
 getBlogs();
+
+
+// add new project to home page
+let addNewProject = document.getElementByClass('add-new-project');
+let newProject = document.getElementById('newProject');
+addNewProject.onclick = function () {
+    newProject.style.display = "block";
+}
