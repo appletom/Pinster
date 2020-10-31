@@ -13,10 +13,11 @@ function renderBlogs(blogArray){
     console.log(blogArray);
     var blogHTML = blogArray.response.map(function (blog) {
         return `
-        <div class="pinster-card">
+        <div class="card">
         <img class="card-img-top" src="${blog.photos[0].original_size.url}" alt="Card image cap">
         <div class="card-body">
         <h5 class="card-title blogTitle"> ${blog.blog_name}</h5>
+        <a href="${blog.post_url}"> ${blog.blog.description}</a>
         <h6 class="card-subtitle text-muted tagged"> ${blog.tags}</h6>
         </div>
         </div>
