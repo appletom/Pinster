@@ -57,25 +57,36 @@
 <div class="results">	</div>
 
 <div class="card">
+
   <div class="container">
-    <img src="" alt="fall-furniture-photo" />
-    <h3>Fall Furniture DIY</h3>
+    <div class="add-new-project">
+      <a href=""><img src="" alt="plus"/><h1>Add New Project</a></h1>
+    </div>
+  </div>
+
+
+<!--- The four columns -->
+<div class="row" >
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_nature.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
   </div>
 </div>
 
-<div class="card">
-  <div class="container">
-    <img src="" alt="pumpkin-patio-photo" />
-    <h3>DIY Pumpkin Patio</h3>
-  </div>
-</div>
 
-<div class="card">
-  <div class="container">
-    <img src="" alt="kids-photo" />
-    <h3>Crafts for Kids</h3>
-  </div>  
-</div>
+    <div class="close-project">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:100%">
+    <div id="imgtext"></div>
+
 
 
 <!-------- JQUERY -------->
@@ -88,6 +99,16 @@
           $(this).css("background-color", "transparent"); 
           }); 
     }); 
+  </script>
+
+  <script>
+  function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
   </script>
 
 <!-------- JAVASCRIPT -------->
