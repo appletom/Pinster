@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const express = require('express')
 const app = express()
-const tumblrApi = require('./apiRoutes/tumblr')
+const tumblrApi = require('../apiRoutes/tumblr')
 //require body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -31,7 +31,7 @@ tumblrApi(app, fetch);
 
 
 //connect server to api routers
-const apiRouters = require("./apiRoutes/routers");
+const apiRouters = require("../apiRoutes/routers");
 app.use("/apiRoutes/routers", apiRouters)
 
 
