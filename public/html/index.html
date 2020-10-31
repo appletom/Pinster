@@ -39,10 +39,10 @@
 
     <div class="collapse navbar-collapse" id="Navbar">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li class="nav-link"><a href="#">Home</a></li>
+      <li class="nav-link"><a href="#">Page 1</a></li>
+      <li class="nav-link"><a href="#">Page 2</a></li>
+      <li class="nav-link"><a href="#">Page 3</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -56,8 +56,61 @@
 <h3>Results</h3>
 <div class="results">	</div>
 
+<div class="card">
 
+  <div class="container">
+    <div class="add-new-project">
+      <a href=""><img src="" alt="plus"/><h1>Add New Project</a></h1>
+    </div>
+  </div>
+
+
+<!--- The four columns -->
+<div class="row" >
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_nature.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column" id="newProject">
+    <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+
+    <div class="close-project">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:100%">
+    <div id="imgtext"></div>
+
+
+
+<!-------- JQUERY -------->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(document).ready(function() { 
+      $("li").hover(function() { //function in
+          $(this).css("background-color", "#D3D3D3"); 
+          }, function() { //function out
+          $(this).css("background-color", "transparent"); 
+          }); 
+    }); 
+  </script>
+
+  <script>
+  function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+  </script>
+
 <!-------- JAVASCRIPT -------->
   <script src="../app/index.js"></script>
   
