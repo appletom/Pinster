@@ -39,10 +39,10 @@
 
     <div class="collapse navbar-collapse" id="Navbar">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li class="nav-link"><a href="#">Home</a></li>
+      <li class="nav-link"><a href="#">Page 1</a></li>
+      <li class="nav-link"><a href="#">Page 2</a></li>
+      <li class="nav-link"><a href="#">Page 3</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -56,8 +56,40 @@
 <h3>Results</h3>
 <div class="results">	</div>
 
+<div class="card">
+  <div class="container">
+    <img src="" alt="fall-furniture-photo" />
+    <h3>Fall Furniture DIY</h3>
+  </div>
+</div>
 
+<div class="card">
+  <div class="container">
+    <img src="" alt="pumpkin-patio-photo" />
+    <h3>DIY Pumpkin Patio</h3>
+  </div>
+</div>
+
+<div class="card">
+  <div class="container">
+    <img src="" alt="kids-photo" />
+    <h3>Crafts for Kids</h3>
+  </div>  
+</div>
+
+
+<!-------- JQUERY -------->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(document).ready(function() { 
+      $("li").hover(function() { //function in
+          $(this).css("background-color", "#D3D3D3"); 
+          }, function() { //function out
+          $(this).css("background-color", "transparent"); 
+          }); 
+    }); 
+  </script>
+
 <!-------- JAVASCRIPT -------->
   <script src="../app/index.js"></script>
   
