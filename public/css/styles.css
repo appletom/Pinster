@@ -16,28 +16,95 @@ body, html {
   margin: 5%;
 }
 
+
+
+.column {
+  float: left;
+  padding: 5%;
+}
+
+/* Style card for button */
+.blog {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+/* Style New Post button */
+.open-btn {
+  display: block;
+  justify-content: center;
+
+}
+
+.open-btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+}
+
+.blog-container {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
+  text-align: center;
+  justify-content: center;
+
+}
+
+form {
+  margin: 0 auto;  
+
+}
+
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.form-popup:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-  position: relative;
-  display: block;
-  padding: 10%;
+
+.form-container {
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 5%;
+  margin: 4% auto;
 }
 
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
+.dateTime {
+  text-align: left;
 }
 
-.browse-projects {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding: 2px;
-    margin: 2%;
+.description, .blog-input {
+  top: 0;
+}
+
+  /* In order to define widths */
+label, input {
+  width: 100%;
+  display: inline-block;
+  clear: both;
+  margin: 2% auto;
+}
+
+  /* Positions the label text beside the input */
+label {
+  text-align: left;
+  clear: both;
+}
+
+p > #timeStamp {
+  display: inline-block;
+}
+
+.blog-input {
+  height: 300px;
+}
+
+.post-btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.cancel-post {
+  margin-top: 5%;
+}
+
+.cancel-post:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
 }
