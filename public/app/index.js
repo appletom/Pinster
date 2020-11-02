@@ -26,13 +26,10 @@ function renderBlogs(blogArray){
 }
 getBlogs();
 
-
-// add new project to home page
-//function clickNewProject (project) {
-
-let addNewProject = document.getElementByClass('add-new-project');
-let newProject = document.getElementById('#newProject');
-addNewProject.onclick = function () {
-    newProject.style.display = "block";
+// create new post on pop up form
+function createPost() {
+  document.getElementById("blogpost").style.display = "block";
 }
-//}
+
+createPost();
+
