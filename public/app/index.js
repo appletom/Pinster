@@ -19,6 +19,19 @@ function renderBlogs(blogArray){
         <h5 class="card-title blogTitle"> ${blog.blog_name}</h5>
         <a href="${blog.post_url}"> ${blog.blog.description}</a>
         <h6 class="card-subtitle text-muted tagged"> ${blog.tags}</h6>
+        <hr>
+        <div class="row">
+        <div class="col col-sm-10 col-md-10">
+        <div class="form-group">
+        <input type="text" name="comment" class="form-control rounded-0" value="Enter comment...">
+        </div>
+        </div>
+        <div class="col col-sm-2 col-md-2">
+        <button class="btn btn-warning rounded-0">Submit</button>
+        </div>
+        </div>
+        <br>
+     
         </div>
         </div>
         `
@@ -29,8 +42,11 @@ getBlogs();
 
 
 // add new project to home page
+//function clickNewProject (project) {
+
 let addNewProject = document.getElementByClass('add-new-project');
-let newProject = document.getElementById('newProject');
+let newProject = document.getElementById('#newProject');
 addNewProject.onclick = function () {
     newProject.style.display = "block";
 }
+//}
