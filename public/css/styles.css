@@ -105,6 +105,18 @@ p > #timeStamp {
   margin-top: 5%;
 }
 
+img{
+  width: 200px;
+  height: 200px;
+}
+
+.browse-projects {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 2px;
+    margin: 2%;
+}
 .cancel-post:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
 }

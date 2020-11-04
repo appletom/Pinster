@@ -34,7 +34,7 @@
 <!--- After OPENING "Create New Post" --->
 <div class="card blog">
   <div class="container">
-   <button class="open-btn" onclick="createPost()">Create New Post</button>
+    <button class="open-btn" onclick="createPost()">Create New Post</button>
   </div>
 
     <div class="blog-container">
@@ -42,15 +42,21 @@
       <form class="form-container">
 
       <div class="dateTime">
-       <h4><label for= "dateTime">Today's Date: </label></h4>​​​
-       <H4 id="timeStamp"></H4>
+        <h4><label for= "dateTime">Today's Date: </label></h4>​​​
+        <H4 id="timeStamp"></H4>
       </diV>
 
       <div class="title">
         <label for= "blog_title">Blog Title: </label>
         <input type="text" placeholder="My first post" name="blog_title" required>
       </div>
-
+      <!-- Example for uploading photos -->
+      <!-- <br>
+      <div class="photo">
+        <form action="/profile" method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+        </form>
+      </div> -->
       <div class="description">
         <label for= "blog_content">Description: </label>
         <input class="blog-input"type="text" placeholder="Start writing..." name="blog_content" required>

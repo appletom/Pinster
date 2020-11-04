@@ -11,7 +11,7 @@ const fetch = require('node-fetch');
 
 //simple server running on PORT 3000
 const port = 3000
-
+const db = require('./PinsterDB/models')
 
 app.use(bodyParser.json());
 
@@ -19,8 +19,13 @@ app.use("/app", express.static(__dirname + "/public/app"));
 app.use("/css", express.static(__dirname + "/public/css"));
 app.use("/", express.static(__dirname + "/public/html"));
 
-
-
+//SEQUELIZE TEST
+// db.sequelize.authenticate().then( ()=> {
+//     console.log("Database connected")
+// }).catch( ()=>{
+//     console.log("There was an errro")
+// })
+db.sequelize.sync()
 
 
 app.get('/', function (req, res) {
