@@ -48,3 +48,12 @@ function createPost() {
 
 createPost();
 
+
+
+
+// cancel 'create new blog'
+function closeForm() {
+    document.getElementById("cancel-form").style.display = "none";
+}
+
+closeForm();
