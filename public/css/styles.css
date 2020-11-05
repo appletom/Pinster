@@ -7,7 +7,7 @@ body, html {
     width: 100%;
 }
 
-.container, textarea {
+.container {
   height: 50px;
   width: 100%;
   padding: 3px;
@@ -51,7 +51,7 @@ body, html {
 }
 
 
-
+/* After opening new blog */
 .blog-container {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
   text-align: center;
@@ -82,9 +82,6 @@ form {
   text-align: left;
 }
 
-.description, .blog-input {
-  top: 0;
-}
 
   /* In order to define widths */
 label, input {
@@ -100,13 +97,12 @@ label {
   clear: both;
 }
 
-p > #timeStamp {
-  display: inline-block;
-}
-
 .blog-input {
+  top: 0;
   height: 300px;
   margin-bottom: 5%;
+  width: 100%;
+  height: 200px;
 }
 
 .upload-btn{
@@ -135,12 +131,18 @@ p > #timeStamp {
   float: right; 
 }
 
-<<<<<<< Updated upstream
-img{
-  width: 200px;
-  height: 200px;
+.closebtn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+  transition: 0.3s;
 }
 
+
+
+.cancel-post:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+}
+
+/*
 .browse-projects {
     display: none;
     position: fixed;
@@ -148,12 +150,3 @@ img{
     padding: 2px;
     margin: 2%;
 }
-.cancel-post:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
-}
-=======
-.closebtn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
-  transition: 0.3s;
-}
->>>>>>> Stashed changes
