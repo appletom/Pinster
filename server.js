@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 
 
+
 //simple server running on PORT 3000
 const port = 3000
 const db = require('./PinsterDB/models')
@@ -34,14 +35,12 @@ app.get('/', function (req, res) {
 
 tumblrApi(app, fetch);
 
-
-
-
 //connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
+const router = require("./apiRoutes/routers");
 app.use("/apiRoutes/routers", apiRouters)
-
-
+const upload = require('./apiRoutes/imgUpload')
+app.use("/apiRoutes/imgUpload", upload)
 
 
 app.listen(port, ()=>{
