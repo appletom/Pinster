@@ -27,11 +27,10 @@ function renderBlogs(blogArray){
         </div>
         </div>
         <div class="col col-sm-2 col-md-2">
-        <button class="btn btn-warning rounded-0">Submit</button>
+        <button class="commentBtn btn-warning rounded-0">Submit</button>
         </div>
         </div>
         <br>
-     
         </div>
         </div>
         `
@@ -40,9 +39,11 @@ function renderBlogs(blogArray){
 }
 getBlogs();
 
+// get comments
+
 // create new post on pop up form
 function createPost() {
-  document.getElementById("blogpost").style.display = "block";
+    document.getElementById("blogpost").style.display = "block";
 }
 
 createPost();
