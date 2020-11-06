@@ -7,6 +7,10 @@ body, html {
     width: 100%;
 }
 
+.nav-link:hover {
+  background-color: silver;
+}
+
 .container {
   height: 50px;
   width: 100%;
