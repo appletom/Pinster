@@ -39,15 +39,18 @@
 
     <div class="collapse navbar-collapse" id="Navbar">
     <ul class="nav navbar-nav">
-      <li class="nav-link"><a href="#">Home</a></li>
+      <li class="nav-link"><a href="./blogpost.html">Home</a></li>
       <li class="nav-link"><a href="#">Page 1</a></li>
       <li class="nav-link"><a href="#">Page 2</a></li>
       <li class="nav-link"><a href="#">Page 3</a></li>
     </ul>
 
+
+
+
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li class="nav-link"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="nav-link"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
     </div>
 
@@ -97,9 +100,12 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     function createPost() { 
-    let create = document.getElementById("createPostID");
+    let create = document.getElementById("#createPostID");
     create.parentElement.style.display='block';
     }
+
+    createPost()
+
   </script>
 
 
