@@ -8,6 +8,7 @@ const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const passport = require('passport');
+const session = require('express-session')
 
 // github authentication -- imports github auth
 const auth = require('./auth');
@@ -17,7 +18,13 @@ auth(app, passport);
 const gitHubStrategy = require('./auth/strategy/github');
 passport.use(gitHubStrategy);
 
-
+// initialize passport
+app.use(session({
+  secret: "secret key",
+  cookie: {maxAge: 60000}
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 //simple server running on PORT 3000
 const port = 3000
@@ -61,14 +68,11 @@ app.get('/details', (req, res) => {
 // db.sequelize.authenticate().then( ()=> {
 //     console.log("Database connected")
 // }).catch( ()=>{
-//     console.log("There was an errro")
+//     console.log("There was an error")
 // })
 //db.sequelize.sync()
 
 
-app.get('/', function (req, res) {
-    res.send('PONG')
-})
 
 tumblrApi(app, fetch);
 
@@ -79,6 +83,9 @@ app.use("/apiRoutes/routers", apiRouters)
 const upload = require('./apiRoutes/imgUpload')
 app.use("/apiRoutes/imgUpload", upload)
 
+
+// run ejs files
+app.set('view engine', 'ejs')
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
