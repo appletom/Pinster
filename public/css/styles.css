@@ -7,11 +7,15 @@ body, html {
     width: 100%;
 }
 
+<<<<<<< Updated upstream
 .nav-link:hover {
   background-color: silver;
 }
 
 .container {
+=======
+.container, textarea {
+>>>>>>> Stashed changes
   height: 50px;
   width: 100%;
   padding: 3px;
@@ -55,7 +59,11 @@ body, html {
 }
 
 
+<<<<<<< Updated upstream
 /* After opening new blog */
+=======
+
+>>>>>>> Stashed changes
 .blog-container {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
   text-align: center;
@@ -114,6 +122,19 @@ label {
   float: left;
 }
 
+<<<<<<< Updated upstream
+=======
+.blog-input {
+  height: 300px;
+  margin-bottom: 5%;
+}
+
+.upload-btn{
+  display: inline-block;
+  float: left;
+}
+
+>>>>>>> Stashed changes
 .upload-btn:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
@@ -128,6 +149,7 @@ label {
 .post-btn:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+<<<<<<< Updated upstream
 }
 
 .closebtn {
@@ -153,4 +175,16 @@ label {
     z-index: 1;
     padding: 2px;
     margin: 2%;
+=======
+}
+
+.closebtn {
+  display: flex;
+  float: right; 
+}
+
+.closebtn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+  transition: 0.3s;
+>>>>>>> Stashed changes
 }

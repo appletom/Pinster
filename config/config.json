@@ -2,7 +2,7 @@
   "development": {
     "username": "billy",
     "password": "123inland",
-    "database": "PinsterDB",
+    "database": "PINSTERDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
