@@ -1,8 +1,8 @@
+// Imports
 require("dotenv").config();
 
-
-
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
@@ -30,23 +30,39 @@ app.use(passport.session());
 const port = 3000
 const db = require('./PinsterDB/models')
 
+// Static files setup
 app.use(bodyParser.json());
-
-// loads front-end javascript and styling
-app.use("/app", express.static(__dirname + "/public/app"));
+app.use(express.static('public'));
+//app.use("/app", express.static(__dirname + "/public/app"));
 app.use("/css", express.static(__dirname + "/public/css"));
+//app.use("/", express.static(__dirname + "/public/html"));
+app.use("/img", express.static(__dirname + "public/img"));
 
-// loads homepage.ejs
-app.get('/', function (req, res) {
-    res.render('pages/homepage')
-})
+// Set templating engine
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+app.set('layout', './index');
 
-// passport initialize
+//EJS Layout Navigation
+app.get('/', (req, res) => {
+    res.render('index', {title: 'Pinster'})
+});
 
+app.get('/about-us', (req, res) => {
+    res.render('about-us', {title: 'About The Pinster Team'})
+});
 
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard', {title: 'Your Dashboard'})
+});
 
-// passport session
+app.get('/login', (req, res) => {
+    res.render('login', {title: 'Login'})
+});
 
+app.get('/details', (req, res) => {
+    res.render('diy-details', {title: 'Search Results'})
+});
 
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
@@ -54,7 +70,7 @@ app.get('/', function (req, res) {
 // }).catch( ()=>{
 //     console.log("There was an error")
 // })
-db.sequelize.sync()
+//db.sequelize.sync()
 
 
 
@@ -73,4 +89,4 @@ app.set('view engine', 'ejs')
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
-})
+});
