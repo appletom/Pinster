@@ -7,7 +7,20 @@ const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const port = 3000;
+const passport = require('passport');
+
+// github authentication -- imports github auth
+const auth = require('./auth');
+auth(app, passport);
+
+//client needs button that calls server (auth/github) and sees github
+const gitHubStrategy = require('./auth/strategy/github');
+passport.use(gitHubStrategy);
+
+
+
+//simple server running on PORT 3000
+const port = 3000
 const db = require('./PinsterDB/models')
 
 // Static files setup
@@ -59,11 +72,14 @@ app.get('/', function (req, res) {
 
 tumblrApi(app, fetch);
 
-//Connect server to api routers
+//connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
+const router = require("./apiRoutes/routers");
 app.use("/apiRoutes/routers", apiRouters)
+const upload = require('./apiRoutes/imgUpload')
+app.use("/apiRoutes/imgUpload", upload)
 
-// Listen on Port X
+
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
 });
