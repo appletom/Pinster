@@ -8,12 +8,9 @@ const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const passport = require('passport');
-<<<<<<< HEAD
 const db = require('./PinsterDB/models')
-=======
 const session = require('express-session')
 
->>>>>>> developer
 // github authentication -- imports github auth
 const auth = require('./auth');
 auth(app, passport);
