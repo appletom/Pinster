@@ -7,6 +7,15 @@ const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+const passport = require('passport');
+
+// github authentication -- imports github auth
+const auth = require('./auth');
+auth(app, passport);
+
+//client needs button that calls server (auth/github) and sees github
+const gitHubStrategy = require('./auth/strategy/github');
+passport.use(gitHubStrategy);
 
 
 
