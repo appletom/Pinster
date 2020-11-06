@@ -21,10 +21,27 @@ app.use("/img", express.static(__dirname + "public/img"));
 // Set templating engine
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.set('layout', './index');
 
 //EJS Layout Navigation
-app.get('', (req, res) => {
-    res.render('index')
+app.get('/', (req, res) => {
+    res.render('index', {title: 'Pinster'})
+});
+
+app.get('/about-us', (req, res) => {
+    res.render('about-us', {title: 'About The Pinster Team'})
+});
+
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard', {title: 'Your Dashboard'})
+});
+
+app.get('/login', (req, res) => {
+    res.render('login', {title: 'Login'})
+});
+
+app.get('/details', (req, res) => {
+    res.render('diy-details', {title: 'Search Results'})
 });
 
 //SEQUELIZE TEST
