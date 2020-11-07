@@ -15,16 +15,16 @@ const auth = require('./auth');
 auth(app, passport);
 
 //client needs button that calls server (auth/github) and sees github
-const gitHubStrategy = require('./auth/strategy/github');
-passport.use(gitHubStrategy);
+//const gitHubStrategy = require('./auth/strategy/github');
+//passport.use(gitHubStrategy);
 
 // initialize passport
-app.use(session({
-  secret: "secret key",
-  cookie: {maxAge: 60000}
-}))
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({
+//   secret: "secret key",
+//   cookie: {maxAge: 60000}
+// }))
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 //simple server running on PORT 3000
 const port = 3000
@@ -71,9 +71,9 @@ app.get('/details', (req, res) => {
 // }).catch( ()=>{
 //     console.log("There was an error")
 // })
-db.sequelize.sync().then( () => {
-    console.log("Create all tables in Databases")
-});
+// db.sequelize.sync().then( () => {
+//     console.log("Create all tables in Databases")
+// });
 
 
 
