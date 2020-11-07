@@ -1,24 +1,37 @@
 <!--First div to hold users information. Flex to left of page-->
-<div class="user-profile-info">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="Profile Picture">
-        <div class="card-header">
-          DIY Profile
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">First Name</li>
-          <li class="list-group-item">Username</li>
-          <li class="list-group-item">Something user related</li>
-        </ul>
-      </div>
-</div>
+ <div class="container">
+  <div class="col-md-4 mb-4">
+  <div class="card ml-auto w-150">
+    <div class="user-profile-pic">
+      <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="card-img-top img-rounded" alt="Profile Picture">
 
+    <div class="upload-btn">
+      <input type="file" id="upload-file" name="Upload" value="Upload">
+    </div>
+    </div>
+ </div>
+ </div>
+
+
+ <div class="col-md-4 mb-4">
+ <div class="card center-block">
+  <div class="user-profile-info">
+    <ul class="ul-profile">
+      <li class="list-group">First Name</li>
+      <li class="list-group">Username</li>
+      <li class="list-group">Something user related</li>
+    </ul>
+   </div>
+  </div>
+</div>
+</div> 
 <!--Second div to show current projects. Middle of page-->
+<div class="container">
 <div class="current-user-projects">
     <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
           <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -27,7 +40,7 @@
         </div>
         <div class="col mb-4">
           <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a short card.</p>
@@ -36,7 +49,7 @@
         </div>
         <div class="col mb-4">
           <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
@@ -45,7 +58,7 @@
         </div>
         <div class="col mb-4">
           <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -53,6 +66,7 @@
           </div>
         </div>
       </div>
+</div>
 </div>
 
 <!--Third div to show completed projects. Flex to right of page-->
