@@ -2,7 +2,6 @@
 require("dotenv").config();
 
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
@@ -43,9 +42,7 @@ app.use("/css", express.static(__dirname + "/public/css"));
 app.use("/img", express.static(__dirname + "public/img"));
 
 // Set templating engine
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
-app.set('layout', './index');
 
 //EJS Layout Navigation
 app.get('/', (req, res) => {
