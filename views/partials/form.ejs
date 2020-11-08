@@ -1,28 +1,39 @@
-<!--- Link CSS Stylesheet -->
-<link rel="stylesheet" href="././css/styles.css">
-
-
-
 <form>
-  <div class="container">
-    <div class="card blog">
-      <div class="blog-container">
-        <div class="form-popup">
-          <form class="form-container">
-            <div class="dateTime">
-              <h4><label for="dateTime">Today's Date: </label></h4>​​​
-              <H4 id="timeStamp"></H4>
-            </diV>
-
-            <div class="Username">
-              <label for="Username">Username: </label>
-              <input type="text" placeholder="" name="Username" required>
-            </div>
-
-            <div class="Password">
-              <label for="Password">Password: </label>
-              <input type="text" placeholder="" name="Password" required>
-            </div>
-        </div>
-      </div>
+  <fieldset>
+    <legend>Create An Account </legend>
+  <div class="form-group">
+    <label for="exampleFormControlName1">First Name</label>
+    <input type="text" class="form-control" id="exampleFormControlName1" placeholder="Enter your first name" required>
+    <label for="exampleFormControlName2">Last Name</label>
+    <input type="text" class="form-control" id="exampleFormControlName2" placeholder="Enter your last name" required>
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@email.com" required>
+    <label for="exampleFormControlName3">Username</label>
+    <input type="text" class="form-control" id="exampleFormControlName3" placeholder="Choose a username" required>
+    <label for="exampleFormControlPW1">Password</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="*********" required>
+    <label for="exampleFormControlDate1">Birthday</label>
+    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">DIY Interests</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Knitting</option>
+      <option>Carpentry</option>
+      <option>Jewelry Making</option>
+      <option>Coding</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Attach a profile picture </label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Your Hobbies</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please tell us what you like to do..."></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Create Account</button>
+  </fieldset>
 </form>
+<br>

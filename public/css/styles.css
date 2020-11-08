@@ -22,9 +22,9 @@ img {
     float: left;
 }
 
-.user-profile-info-div {
+.user-profile-info {
     /*background-color: lightgray;*/
-    margin-top: 10%;
+    margin-top: 20%;
     margin-left: 5%;
     padding: 5%;
 }
@@ -48,7 +48,8 @@ img {
 }
 
 .new-project-header {
-    margin-top: 10%;
+    padding-top: 10%;
+    text-align: center;
 }
 
 .new-project-img {
