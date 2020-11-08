@@ -1,17 +1,35 @@
+
+<!--- Link CSS Stylesheet -->
+<link rel="stylesheet" href="././css/styles.css">
+
+
+
 <main>
   <body class="user-dashboard">
-    <!--First div to hold users information. Flex to left of page-->
-    <div class="user-profile-pic col md-4 mb-4">
-      <div class="img-div">
-        <img src="#" class="img-profile" alt="Profile Picture">
-      </div>
 
-      <div class="upload-btn">
-        <input type="file" id="upload-file" name="Upload" value="Upload">
+<!--First div to hold users information. Flex to left of page-->
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+  <div class="user-profile-div">
+    <div class="user-profile-img-btn">
+
+      <div class="user-profile-img">
+        <div class="img-div">
+          <img src="http://static.movingpackets.net/2013/12/github-logo-transparent.jpg" class="img-profile" alt="Profile Picture" height="300px" width="350px">
+        </div>
+
+        <div class="upload-btn">
+          <input type="file" id="upload-file" name="Upload" value="Upload">
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="user-profile-info col md-4 mb-4">
+<div class="col-sm-6">
+    <div class="card-body">
+    <div class="user-profile-info ">
       <div class="user-profile-items">
         <h3 class="ul-profile-item">Username</h3>
         <h5 class="ul-profile-item">First Name</h5>
@@ -19,118 +37,143 @@
       </div>
     </div>
     </div>
+</div>
+</div>
 
-    <!--Second div to show current projects. Middle of page-->
-    <div class="container">
-      <div class="current-user-projects">
-        <div class="row row-cols-1 row-cols-md-3">
-          <div class="col mb-4">
-            <div class="card h-100">
-              <img src="#" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-              </div>
-            </div>
+
+
+<!--Second div to show current projects. Middle of page-->
+<div class="container">
+  <div class="current-user-projects">
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col mb-4">
+        <div class="card h-100">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <img src="#" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
           </div>
-          <div class="col mb-4">
-            <div class="card h-100">
-              <img src="#" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a short card.</p>
-              </div>
-            </div>
+        </a>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card h-100">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <img src="#" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
           </div>
-          <div class="col mb-4">
-            <div class="card h-100">
-              <img src="#" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                  content.</p>
-              </div>
-            </div>
+        </a>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card h-100">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <img src="#" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content.</p>
           </div>
-          <div class="col mb-4">
-            <div class="card h-100">
-              <img src="#" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-              </div>
-            </div>
+        </a>  
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card h-100">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <img src="#" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
           </div>
+        </a>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card h-100 new-project-header">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <div class="card-body">
+            <h5 class="card-title">Add New Project</h5>
+            <img src="././img/plus.png" class="card-img-top new-project-img" alt="...">                
+          </div>
+        </a>  
+        </div>
+      </div>          
+    </div>
+  </div>
+</div>
+
+
+<!--Third div to show completed projects. Flex to right of page-->
+<div class="completed-user-projects">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left text-decoration-none" type="button" data-toggle="collapse"
+            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Completed Project 1
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+          moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+          shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+          proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+          aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
       </div>
     </div>
-    <!--Third div to show completed projects. Flex to right of page-->
-    <div class="completed-user-projects">
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Completed Project 1
-              </button>
-            </h2>
-          </div>
-
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Completed Project 2
-              </button>
-            </h2>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Completed Project 3
-              </button>
-            </h2>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed text-decoration-none" type="button" data-toggle="collapse"
+            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Completed Project 2
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+          moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+          shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+          proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+          aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
       </div>
     </div>
-  </body>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed text-decoration-none" type="button" data-toggle="collapse"
+            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Completed Project 3
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+          moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+          shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+          proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+          aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
 </main>
