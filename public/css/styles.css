@@ -1,171 +1,24 @@
 * {
-    color: #20B2AA;
-}
-
-body, html {
-    height: 100%;
-    width: 100%;
+    color: slategray;
 }
 
 
-.nav-link:hover {
-  background-color: silver;
+/* user info styling */
+/*background color for references-*/
+.user-profile-pic {
+background-color: silver;
 }
 
-.container {
-
-  height: 50px;
-  width: 100%;
-  padding: 3px;
-}
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  text-align: center;
-  margin: 5%;
+.user-profile-items {
+background-color: lightgray;
 }
 
 
 
-.column {
-  float: left;
-  padding: 5%;
+
+/* completed projects styling */
+.card-header, .btn-link {
+    background-color: #b484a3;
+    color: white;
 }
 
-/* Style card for button */
-.blog {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  padding: 2% 5%;
-}
-
-/* Style New Post button */
-.open-btn {
-  display: block;
-  text-align: center;
-
-}
-
-
-.open-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
- 
-}
-
-
-/* After opening new blog */
-
-.blog-container {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
-  text-align: center;
-
-
-}
-
-form {
-  margin: 0 auto;  
-
-}
-
-/* On mouse-over, add a deeper shadow */
-.form-popup:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-
-.form-container {
-  transition: 0.3s;
-  border-radius: 5px;
-  padding: 5%;
-  margin: 4% auto;
-
-}
-
-.dateTime {
-  text-align: left;
-}
-
-
-  /* In order to define widths */
-label, input {
-  width: 100%;
-  display: inline-block;
-  clear: both;
-  margin: 2% auto;
-}
-
-  /* Positions the label text beside the input */
-label {
-  text-align: left;
-  clear: both;
-}
-
-.blog-input {
-  top: 0;
-  height: 300px;
-  margin-bottom: 5%;
-  width: 100%;
-  height: 200px;
-}
-
-.upload-btn{
-  display: inline-block;
-  float: left;
-}
-
-.blog-input {
-  height: 300px;
-  margin-bottom: 5%;
-}
-
-.upload-btn{
-  display: inline-block;
-  float: left;
-}
-
-.upload-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
-}
-
-
-.post-btn {
-  display: inline-block;
-  float: right; 
-}
-
-.post-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-
-}
-
-.closebtn {
-  display: flex;
-  float: right; 
-}
-
-.closebtn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
-  transition: 0.3s;
-}
-
-
-
-.cancel-post:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
-}
-
-/*
-.browse-projects {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding: 2px;
-    margin: 2%;
-}
-*/
