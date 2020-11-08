@@ -2,8 +2,8 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Posts', [{
-      authorID: 555,
+    await queryInterface.bulkInsert('Post', [{
+      postID: 555,
       title: 'DIY Project',
       description: 'Do it Yourself',
       photo: null,
@@ -11,7 +11,7 @@ module.exports = {
       updatedAt: new Date()
   }, 
   {
-    authorID: 444,
+      postID: 444,
       title: 'DIY Gallery Wall',
       description: 'Steps to design your own gallery wall',
       photo: null,
@@ -21,6 +21,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Posts', null, {});
+    return queryInterface.bulkDelete('Post', null, {});
   }
 };

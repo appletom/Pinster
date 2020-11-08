@@ -7,9 +7,10 @@ const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const passport = require('passport');
+const blogPost = require('./apiRoutes/blogPost')
+
 const db = require('./models')
 const session = require('express-session')
-
 // github authentication -- imports github auth
 const auth = require('./auth');
 auth(app, passport);
@@ -29,7 +30,8 @@ auth(app, passport);
 //simple server running on PORT 3000
 const port = 3000
 
-
+//SEQUELIZE TEST
+db.sequelize.sync();
 // Static files setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -65,29 +67,23 @@ app.get('/details', (req, res) => {
     res.render('diy-details', {title: 'Search Results'})
 });
 
-//SEQUELIZE TEST
-// db.sequelize.authenticate().then( ()=> {
-//     console.log("Database connected")
-// }).catch( ()=>{
-//     console.log("There was an error")
-// })
-// db.sequelize.sync().then( () => {
-//     console.log("Create all tables in Databases")
-// });
+
 
 
 
 tumblrApi(app, fetch);
 
 //connect server to api routers
-const apiRouters = require("./apiRoutes/routers");
-//const router = require("./apiRoutes/routers");
-app.use("/apiRoutes/routers", apiRouters)
-const upload = require('./apiRoutes/imgUpload')
-app.use("/apiRoutes/imgUpload", upload)
-const blogPost = require('./apiRoutes/BlogPost')
+// const apiRouters = require("./apiRoutes/routers");
+// //const router = require("./apiRoutes/routers");
+// app.use("/apiRoutes/routers", apiRouters)
+// const upload = require('./apiRoutes/imgUpload')
+// app.use("/apiRoutes/imgUpload", upload)
 
-app.use('/apiRoutes/posts', blogPost);
+
+app.use('/api', blogPost);
+
+
 
 // run ejs files
 app.set('view engine', 'ejs')
