@@ -1,30 +1,31 @@
+<!--- Link CSS Stylesheet -->
+<link rel="stylesheet" href="././css/styles.css">
+
+
+
 <!--First div to hold users information. Flex to left of page-->
- <div class="container">
-  <div class="col-md-4 mb-4">
-  <div class="card ml-auto w-150">
-    <div class="user-profile-pic">
-      <img src="https://www.w3schools.com/bootstrap/cinqueterre.jpg" class="card-img-top img-rounded" alt="Profile Picture">
+
+
+  <div class="user-profile-pic col md-4 mb-4">
+    <div class="img-div">
+      <img src="#" class="img-profile" alt="Profile Picture">
+    </div>
 
     <div class="upload-btn">
       <input type="file" id="upload-file" name="Upload" value="Upload">
     </div>
-    </div>
- </div>
- </div>
-
-
- <div class="col-md-4 mb-4">
- <div class="card center-block">
-  <div class="user-profile-info">
-    <ul class="ul-profile">
-      <li class="list-group">First Name</li>
-      <li class="list-group">Username</li>
-      <li class="list-group">Something user related</li>
-    </ul>
-   </div>
   </div>
-</div>
-</div> 
+  
+  <div class="user-profile-info col md-4 mb-4">
+    <div class="user-profile-items">
+      <h3 class="ul-profile-item">Username</h3>
+      <h5 class="ul-profile-item">First Name</h5>
+      <p class="ul-profile-item">Something user related</p>  
+    </div>
+  </div>
+ </div>
+
+
 <!--Second div to show current projects. Middle of page-->
 <div class="container">
 <div class="current-user-projects">
@@ -117,3 +118,6 @@
         </div>
       </div>
 </div>
+
+</body>
+</html>
