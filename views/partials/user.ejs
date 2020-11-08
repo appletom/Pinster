@@ -4,19 +4,26 @@
 
 
 <!--First div to hold users information. Flex to left of page-->
+<div class="container">
+<div class="row">
+<div class="user-profile-div">
+  <div class="user-profile-img-btn">
 
-
-  <div class="user-profile-pic col md-4 mb-4">
-    <div class="img-div">
-      <img src="#" class="img-profile" alt="Profile Picture">
-    </div>
+    <div class="user-profile-img">
+      <div class="img-div">
+        <img src="http://static.movingpackets.net/2013/12/github-logo-transparent.jpg" class="img-profile" alt="Profile Picture" height="300px" width="350px">
+      </div>
 
     <div class="upload-btn">
       <input type="file" id="upload-file" name="Upload" value="Upload">
     </div>
   </div>
-  
-  <div class="user-profile-info col md-4 mb-4">
+</div>
+</div>
+
+<div class="card-body">
+<div class="user-profile-info-div">
+  <div class="user-profile-info">
     <div class="user-profile-items">
       <h3 class="ul-profile-item">Username</h3>
       <h5 class="ul-profile-item">First Name</h5>
@@ -24,6 +31,7 @@
     </div>
   </div>
  </div>
+</div>
 
 
 <!--Second div to show current projects. Middle of page-->
@@ -31,41 +39,68 @@
 <div class="current-user-projects">
     <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
+          <div class="card h-100"> 
+            <a class="card-block stretched-link text-decoration-none" href>
+            <img src="#" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="col mb-4">
           <div class="card h-100">
+            <a class="card-block stretched-link text-decoration-none" href>
+            <img src="#" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a short card.</p>
+              </div>
+            </a>  
+          </div>
+        </div>
+
+
+        <div class="col mb-4">
+          <div class="card h-100">
+            <a class="card-block stretched-link text-decoration-none" href>
+            <img src="#" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              </div>
+            </a>  
+          </div>
+        </div>
+
+
+        <div class="col mb-4">
+          <div class="card h-100">
+          <a class="card-block stretched-link text-decoration-none" href>
             <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
+          </a>    
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a short card.</p>
+
+        <div class="col-4 mb-4 text-center ">
+          <div class="card h-100">           
+            <div class="card-body ">
+              <a class="text-decoration-none" href="">
+              <h5 class="card-title new-project-header">Add New Project</h5>
+              <img src="././img/plus.png" class="card-img-top new-project-img" alt="...">
+              </a>    
             </div>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
+
+
       </div>
 </div>
 </div>
@@ -76,7 +111,7 @@
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-left text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Completed Project 1
               </button>
             </h2>
@@ -91,7 +126,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-left collapsed text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Completed Project 2
               </button>
             </h2>
@@ -103,9 +138,9 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingThree">
+          <div class="card-header text-decoration-none" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left collapsed text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 Completed Project 3
               </button>
             </h2>
