@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../PinsterDB/models');
+const db = require('../models');
 
 
 //GET/blogs
