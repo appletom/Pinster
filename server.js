@@ -65,6 +65,10 @@ app.get('/details', (req, res) => {
     res.render('diy-details', {title: 'Search Results'})
 });
 
+app.get('/partials/projects', (req, res) => {
+    res.render('projects', {title: 'Projects'})
+});
+
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
 //     console.log("Database connected")
