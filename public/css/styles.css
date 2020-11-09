@@ -15,17 +15,19 @@
     text-align: center;
 }
 
-img {
-    border-radius: 50%;
+.img-div, img {
+    display: block;
+    border-radius: 20%;
     margin: 5%;
     float: left;
+    text-align: center;
 }
+
 
 .user-profile-info {
     /*background-color: lightgray;*/
     margin-top: 20%;
-    margin-left: 5%;
-    padding: 5%;
+
 }
 
 
