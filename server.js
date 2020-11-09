@@ -65,9 +65,7 @@ app.get('/details', (req, res) => {
     res.render('diy-details', {title: 'Search Results'})
 });
 
-app.get('/partials/projects', (req, res) => {
-    res.render('projects', {title: 'Projects'})
-});
+
 
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
@@ -82,6 +80,7 @@ app.get('/partials/projects', (req, res) => {
 
 
 tumblrApi(app, fetch);
+app.use('/apiRoutes/tumblr', tumblrApi)
 
 //connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
@@ -90,6 +89,9 @@ app.use("/apiRoutes/routers", apiRouters)
 const upload = require('./apiRoutes/imgUpload')
 app.use("/apiRoutes/imgUpload", upload)
 const blogPost = require('./apiRoutes/BlogPost')
+
+
+
 
 app.use('/apiRoutes/posts', blogPost);
 
