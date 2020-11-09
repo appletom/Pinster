@@ -1,24 +1,72 @@
 * {
     color: slategray;
+
 }
 
 
 /* user info styling */
 /*background color for references-*/
-.user-profile-pic {
-background-color: silver;
+.user-profile-img-btn{
+    /*background-color: silver;*/
+    margin-bottom: 10%;
+
 }
 
-.user-profile-items {
-background-color: lightgray;
+.upload-btn {
+    text-align: center;
+}
+
+img {
+    border-radius: 50%;
+    margin: 5%;
+    float: left;
+}
+
+.user-profile-info {
+    /*background-color: lightgray;*/
+    margin-top: 20%;
+    margin-left: 5%;
+    padding: 5%;
 }
 
 
 
 
-/* completed projects styling */
+/* in-progress projects */
+.current-user-projects {
+    margin-top: 2%;
+}
+
+
 .card-header, .btn-link {
     background-color: #b484a3;
     color: white;
 }
 
+.h-100:hover {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+}
+
+.new-project-header {
+    padding-top: 10%;
+    text-align: center;
+}
+
+.new-project-img {
+    height: 40%;
+    width: 25%;
+    margin-left: 35%;
+}
+
+
+
+/* completed projects */
+.completed-user-projects {
+    margin: 2% auto;
+}
+
+
+/* footer */
+.credits {
+    text-align: center;
+}
