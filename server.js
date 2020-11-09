@@ -54,7 +54,7 @@ app.get('/about-us', (req, res) => {
 });
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard', {title: 'Your Dashboard'})
+    res.render('dashboard', {title: 'Your Dashboard', loggedIn: true, username:''})
 });
 
 app.get('/login', (req, res) => {
@@ -62,9 +62,12 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/details', (req, res) => {
-    res.render('diy-details', {title: 'Search Results'})
+    res.render('diy-details', {title: 'This DIY Project'})
 });
 
+app.get('/search', (req, res) => {
+    res.render('search', {title: 'Search Results', searchResults: [], data: {userQuery: req.params.userQuery}})
+});
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
 //     console.log("Database connected")
@@ -88,9 +91,6 @@ app.use("/apiRoutes/imgUpload", upload)
 const blogPost = require('./apiRoutes/BlogPost')
 
 app.use('/apiRoutes/posts', blogPost);
-
-// run ejs files
-app.set('view engine', 'ejs')
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
