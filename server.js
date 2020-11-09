@@ -68,6 +68,7 @@ app.get('/details', (req, res) => {
 app.get('/search', (req, res) => {
     res.render('search', {title: 'Search Results', searchResults: [], data: {userQuery: req.params.userQuery}})
 });
+
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
 //     console.log("Database connected")
@@ -78,9 +79,8 @@ app.get('/search', (req, res) => {
 //     console.log("Create all tables in Databases")
 // });
 
-
-
 tumblrApi(app, fetch);
+app.use('/apiRoutes/tumblr', tumblrApi)
 
 //connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
@@ -89,7 +89,6 @@ app.use("/apiRoutes/routers", apiRouters)
 const upload = require('./apiRoutes/imgUpload')
 app.use("/apiRoutes/imgUpload", upload)
 const blogPost = require('./apiRoutes/BlogPost')
-
 app.use('/apiRoutes/posts', blogPost);
 
 app.listen(port, ()=>{
