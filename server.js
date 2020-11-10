@@ -6,26 +6,25 @@ const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const passport = require('passport');
+//const passport = require('passport');
 const blogPost = require('./apiRoutes/blogPost')
-
 const db = require('./models')
 const session = require('express-session')
 // github authentication -- imports github auth
-const auth = require('./auth');
-auth(app, passport);
+const passport = require('./config/passport');
+const authRouter = require('./auth/index')
+
 
 //client needs button that calls server (auth/github) and sees github
 //const gitHubStrategy = require('./auth/strategy/github');
 //passport.use(gitHubStrategy);
 
-// initialize passport
-// app.use(session({
-//   secret: "secret key",
-//   cookie: {maxAge: 60000}
-// }))
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+    secret: 'super secret',
+    cookie: {maxAge: 60000}
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 //simple server running on PORT 3000
 const port = 3000
@@ -48,32 +47,31 @@ app.set('view engine', 'ejs');
 
 //EJS Layout Navigation
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Pinster'})
+    res.render('index', { title: 'Pinster' })
 });
 
 app.get('/about-us', (req, res) => {
-    res.render('about-us', {title: 'About The Pinster Team'})
+    res.render('about-us', { title: 'About The Pinster Team' })
 });
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard', {title: 'Your Dashboard', loggedIn: true, username:''})
+    res.render('dashboard', { title: 'Your Dashboard', loggedIn: true, username: '' })
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'})
+    res.render('login', { title: 'Login' })
 });
 
 app.get('/details', (req, res) => {
-    res.render('diy-details', {title: 'This DIY Project'})
+    res.render('diy-details', { title: 'This DIY Project' })
 });
 
 app.get('/search', (req, res) => {
-    res.render('search', {title: 'Search Results', searchResults: [], data: {userQuery: req.params.userQuery}})
+    res.render('search', { title: 'Search Results', searchResults: [], data: { userQuery: req.params.userQuery } })
 });
 
-app.get('/api/tmblrBlogs', (req,res)=>{
-    
-})
+
+app.use('/auth', authRouter)
 
 tumblrApi(app, fetch);
 app.use('/apiRoutes/tumblr', tumblrApi)
@@ -87,6 +85,6 @@ const apiRouters = require("./apiRoutes/routers");
 // const blogPost = require('./apiRoutes/BlogPost')
 // app.use('/apiRoutes/posts', blogPost);
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });

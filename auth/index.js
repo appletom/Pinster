@@ -1,17 +1,22 @@
-module.exports = (app, passport) => {
+const express = require('express')
+const passport = require('../config/passport')
+const ensureAuthenticated = require('../middleware/ensureAuthenticated');
+const router = express.Router()
 
-  // -----------------------------------------------------------------------------
-  //                                LOGIN
-  // -----------------------------------------------------------------------------
-  app.get('/auth/github', passport.authenticate('github'));
+// Callback
+router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/'}) ,(req, res) => {
+    res.redirect('/dashboard')
+  
+})
 
-  // -----------------------------------------------------------------------------
-  //                                CALLBACK
-  // -----------------------------------------------------------------------------
-  app.get(
-    '/auth/github/callback',
-    passport.authenticate('github', {failureRedirect: '/login'}),
-    (req, res) => res.redirect('/home') 
-  );
+// This is the route I call when I want to login
+router.get('/github', passport.authenticate('github')) 
 
-};
+// This is the route I call when I want to log out
+router.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect("/")
+})
+
+
+module.exports = router
