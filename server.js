@@ -36,7 +36,7 @@ app.use(passport.session());
 // app.use(passport.session());
 
 //simple server running on PORT 3000
-const port = 3000
+const port = process.env.PORT
 
 //SEQUELIZE TEST
 db.sequelize.sync();
