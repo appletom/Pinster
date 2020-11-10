@@ -73,12 +73,13 @@ app.get('/search', (req, res) => {
 // app.get('/api/tmblrBlogs', (req,res)=>{
     
 // get tumblr api into user dashboard
-app.get('/dashboard', (req, res) => {
+app.get('/projects', async (req, res) => {
+
     const { tags, blog } = req.body;
     const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
-    fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20crochet`)
+    await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20crochet`)
     .then(result => result.json())
-    .then(data => res.json(data))
+    .then(data => res.render('projects',{data: data.response, title: 'Projects'}))
     });
 
 
