@@ -10,12 +10,14 @@ const passport = require('passport');
 const blogs = require('./apiRoutes/blogPost')
 const db = require('./models')
 const session = require('express-session')
+const getBlogsJS = require('./apiRoutes/tumblr')
+
 
 // github authentication -- imports github auth
-// const auth = require('./auth');
-// auth(app, passport);
-// const gitHubStrategy = require('./auth/strategy/github');
-// passport.use(gitHubStrategy);
+const auth = require('./auth');
+auth(app, passport);
+const gitHubStrategy = require('./auth/strategy/github');
+passport.use(gitHubStrategy);
 
 // //initialize passport
 // app.use(session({
@@ -38,6 +40,7 @@ app.use("/app", express.static(__dirname + "/public/app"));
 app.use(express.static('public'));
 app.use("/css", express.static(__dirname + "/public/css"));
 app.use("/img", express.static(__dirname + "public/img"));
+
 
 // Set templating engine
 app.set('view engine', 'ejs');
@@ -69,6 +72,24 @@ app.get('/search', (req, res) => {
 
 // app.get('/api/tmblrBlogs', (req,res)=>{
     
+// get tumblr api into user dashboard
+app.get('/projects', async (req, res) => {
+
+    const { tags, blog } = req.body;
+    const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
+    await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20crochet`)
+    .then(result => result.json())
+    .then(data => res.render('projects',{data: data.response, title: 'Projects'}))
+    });
+
+
+
+//SEQUELIZE TEST
+// db.sequelize.authenticate().then( ()=> {
+//     console.log("Database connected")
+// }).catch( ()=>{
+//     console.log("There was an error")
+
 // })
 
 tumblrApi(app, fetch);
