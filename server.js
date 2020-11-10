@@ -12,10 +12,10 @@ const db = require('./models')
 const session = require('express-session')
 
 // github authentication -- imports github auth
-// const auth = require('./auth');
-// auth(app, passport);
-// const gitHubStrategy = require('./auth/strategy/github');
-// passport.use(gitHubStrategy);
+const auth = require('./auth');
+auth(app, passport);
+const gitHubStrategy = require('./auth/strategy/github');
+passport.use(gitHubStrategy);
 
 // //initialize passport
 // app.use(session({
@@ -38,6 +38,7 @@ app.use("/app", express.static(__dirname + "/public/app"));
 app.use(express.static('public'));
 app.use("/css", express.static(__dirname + "/public/css"));
 app.use("/img", express.static(__dirname + "public/img"));
+
 
 // Set templating engine
 app.set('view engine', 'ejs');
@@ -69,6 +70,19 @@ app.get('/search', (req, res) => {
 
 // app.get('/api/tmblrBlogs', (req,res)=>{
     
+// get tumblr api into user dashboard
+app.get('/user', (req, res) => {
+    res.render('/apiRoutes/tumblr', {
+        type: 'photo', 
+        description: description})
+})
+
+//SEQUELIZE TEST
+// db.sequelize.authenticate().then( ()=> {
+//     console.log("Database connected")
+// }).catch( ()=>{
+//     console.log("There was an error")
+
 // })
 
 tumblrApi(app, fetch);

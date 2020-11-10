@@ -1,11 +1,6 @@
 
 <!--- Link CSS Stylesheet -->
-<link rel="stylesheet" href="././css/styles.css">
-<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-
-
+    <link rel="stylesheet" href="././css/styles.css">
 
 <main>
   <body class="user-dashboard">
@@ -34,7 +29,7 @@
     <div class="card-body">
     <div class="user-profile-info ">
       <div class="user-profile-items">
-        <h3 class="ul-profile-item">Username</h3>
+        <h3 class="ul-profile-item"><%- username %> </h3>
         <h5 class="ul-profile-item">First Name</h5>
         <p class="ul-profile-item">Something user related</p>
       </div>
@@ -47,18 +42,32 @@
 
 <!--Second div to show current projects. Middle of page-->
 
-  <div class="current-user-projects">
+  <div class="container">
     <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4">
-        <div class="card h-100">
-        <a class="card-block stretched-link text-decoration-none" href>
-          <img src="#" class="card-img" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+      <div class="col mb-4 current-card-class">
+      
+        <div class="card h-100" id="current-project-id">
+
+          <div class="clearfix">
+          
+            <button type="button" class="deletebtn btn btn-default" onclick="closeBtn()"> 
+            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            Delete
+            </button>
+       
+            <button type="button" class="completedbtn btn btn-default" onclick="moveToCompleted()">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Completed
+            </button>
+
           </div>
-        </a>
+
+        <img src="#" class="card-img" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+        </div>
         </div>
       </div>
       <div class="col mb-4">
@@ -101,7 +110,7 @@
       <div class="col mb-4">
         <div class="card h-100 new-project-header">
           <div class="card-body add-new-div">
-            <a class="card-block stretched-link text-decoration-none" href="././apiRoutes/tumblr">
+            <a class="card-block stretched-link text-decoration-none" href="././api/tmblrBlogs">
            
             <h5 class="add-new-project">Add New Project</h5>
             <button class="btn"><img src="././img/plus.png" class="card-img new-project-img" alt="..." onclick="openProjects( )"></button>                
@@ -110,6 +119,7 @@
         </a>  
         </div>
       </div>          
+
     </div>
   </div>
 
@@ -183,6 +193,8 @@
 
 </body>
 
+
+<!--- browse button -->
 <script>
 function loadFile(input) {
   if (input.files && input.files[0]) {
@@ -195,6 +207,28 @@ function loadFile(input) {
 
       reader.readAsDataURL(input.files[0]);
   }  
+}
+
+</script>
+
+
+<!--- remove bootstrap card -->
+ <script>
+$(document).ready(function(){
+
+  $("button").click(function(closeBtn){
+    $("#current-project-id").remove();
+});
+});
+</script> 
+
+
+
+<!--- move to completed bootstrap card -->
+<script>
+
+function moveToCompleted() {
+
 }
 
 </script>
