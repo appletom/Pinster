@@ -67,7 +67,9 @@ app.get('/details', (req, res) => {
     res.render('diy-details', {title: 'Search Results'})
 });
 
-
+app.get('/api/tmblrBlogs', (req,res)=>{
+    
+})
 
 
 

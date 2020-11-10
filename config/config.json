@@ -1,11 +1,11 @@
 {
   "development": {
-    "database": "PinsterDB",
+    "database": "pinsterDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "PinsterDB",
+    "database": "pinsterDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
