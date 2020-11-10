@@ -6,11 +6,14 @@ const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const passport = require('passport');
+//const passport = require('passport');
 const blogs = require('./apiRoutes/blogPost')
 const db = require('./models')
 const session = require('express-session')
-const getBlogsJS = require('./apiRoutes/tumblr')
+
+// github authentication -- imports github auth
+const passport = require('./config/passport');
+const authRouter = require('./auth/index')
 
 
 // github authentication -- imports github auth
@@ -19,6 +22,12 @@ auth(app, passport);
 const gitHubStrategy = require('./auth/strategy/github');
 passport.use(gitHubStrategy);
 
+app.use(session({
+    secret: 'super secret',
+    cookie: {maxAge: 60000}
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 // //initialize passport
 // app.use(session({
 //   secret: "secret key",
@@ -31,7 +40,7 @@ passport.use(gitHubStrategy);
 const port = 3000
 
 //SEQUELIZE TEST
-//db.sequelize.sync();
+db.sequelize.sync();
 
 // Static files setup
 app.use(bodyParser.json());
@@ -47,30 +56,33 @@ app.set('view engine', 'ejs');
 
 //EJS Layout Navigation
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Pinster'})
+    res.render('index', { title: 'Pinster' })
 });
 
 app.get('/about-us', (req, res) => {
-    res.render('about-us', {title: 'About The Pinster Team'})
+    res.render('about-us', { title: 'About The Pinster Team' })
 });
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard', {title: 'Your Dashboard', loggedIn: true, username:''})
+    res.render('dashboard', { title: 'Your Dashboard', loggedIn: true, username: '' })
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'})
+    res.render('login', { title: 'Login' })
 });
 
 app.get('/details', (req, res) => {
-    res.render('diy-details', {title: 'This DIY Project'})
+    res.render('diy-details', { title: 'This DIY Project' })
 });
 
 app.get('/search', (req, res) => {
-    res.render('search', {title: 'Search Results', searchResults: [], data: {userQuery: req.params.userQuery}})
+    res.render('search', { title: 'Search Results', searchResults: [], data: { userQuery: req.params.userQuery } })
 });
 
-// app.get('/api/tmblrBlogs', (req,res)=>{
+
+
+app.use('/auth', authRouter)
+
     
 // get tumblr api into user dashboard
 app.get('/projects', async (req, res) => {
@@ -92,6 +104,7 @@ app.get('/projects', async (req, res) => {
 
 // })
 
+
 tumblrApi(app, fetch);
 app.use('/apiRoutes/tumblr', tumblrApi)
 
@@ -103,6 +116,6 @@ const upload = require('./apiRoutes/imgUpload')
 app.use("/apiRoutes/imgUpload", upload)
 app.use('/apiRoutes/posts', blogs);
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });
