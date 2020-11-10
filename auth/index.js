@@ -10,6 +10,7 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
 })
 
 
+
 // This is the route I call when I want to login
 router.get('/github', passport.authenticate('github')) 
 
