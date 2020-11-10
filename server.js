@@ -21,19 +21,14 @@ const auth = require('./auth');
 const gitHubStrategy = require('./auth/strategy/github');
 passport.use(gitHubStrategy);
 
+//initialize passport
 app.use(session({
     secret: 'super secret',
     cookie: {maxAge: 60000}
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-// //initialize passport
-// app.use(session({
-//   secret: "secret key",
-//   cookie: {maxAge: 60000}
-// }))
-// app.use(passport.initialize());
-// app.use(passport.session());
+
 
 //simple server running on PORT 3000
 const port = process.env.PORT
@@ -86,11 +81,13 @@ app.use('/auth', authRouter)
 // get tumblr api into user dashboard
 app.get('/projects', async (req, res) => {
 
-    const { tags, blog } = req.body;
+    const { tags, blog} = req.body;
     const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
-    await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20crochet`)
+    await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20ideas`)
     .then(result => result.json())
     .then(data => res.render('projects',{data: data.response, title: 'Projects'}))
+
+ 
     });
 
 
