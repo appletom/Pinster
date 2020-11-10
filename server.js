@@ -80,12 +80,12 @@ app.use('/apiRoutes/tumblr', tumblrApi)
 
 //connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
-//const router = require("./apiRoutes/routers");
-app.use("/apiRoutes/routers", apiRouters)
-const upload = require('./apiRoutes/imgUpload')
-app.use("/apiRoutes/imgUpload", upload)
-const blogPost = require('./apiRoutes/BlogPost')
-app.use('/apiRoutes/posts', blogPost);
+// //const router = require("./apiRoutes/routers");
+// app.use("/apiRoutes/routers", apiRouters)
+// const upload = require('./apiRoutes/imgUpload')
+// app.use("/apiRoutes/imgUpload", upload)
+// const blogPost = require('./apiRoutes/BlogPost')
+// app.use('/apiRoutes/posts', blogPost);
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`)
