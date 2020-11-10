@@ -16,10 +16,6 @@ module.exports = (router, fetch) => {
         .then(data => res.json(data));
     });
 
-    router.get("/api/tumblr", async (req, res) => {
-        const apiBlogs = await db.router.findAll();
-        res.send(apiBlogs);
-    })
 
 
 };

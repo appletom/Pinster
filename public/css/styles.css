@@ -8,19 +8,14 @@
 .user-profile-img-btn{
     /*background-color: silver;*/
     margin-bottom: 10%;
-
+    margin-left: 25%;
 }
 
-.upload-btn {
-    text-align: center;
-}
 
 .img-div, img {
     display: block;
     border-radius: 20%;
     margin: 5%;
-    float: left;
-    text-align: center;
 }
 
 
@@ -39,14 +34,32 @@
 }
 
 
-.card-header, .btn-link {
-    background-color: darkgray;
-    color: white;
-}
 
 .h-100:hover {
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
 }
+
+.deletebtn {
+    margin: 5%;
+}
+
+.deletebtn:hover {
+    font-weight:bold;
+    -webkit-transform: scale(1.1); 
+    color: red;
+}
+
+.completedbtn {
+    float: right;
+    margin: 5%;    
+}
+
+.completedbtn:hover {
+    font-weight:bold;
+    -webkit-transform: scale(1.1); 
+}
+
+
 
 .new-project-header {
     padding-top: 10%;
@@ -60,7 +73,6 @@
 }
 
 
-
 /* completed projects */
 .completed-user-projects {
     margin: 2% auto;
@@ -68,6 +80,8 @@
 
 
 /* footer */
+
 .credits {
     text-align: center;
+    font-size: small;
 }
