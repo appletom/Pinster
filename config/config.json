@@ -1,16 +1,11 @@
 {
   "development": {
-    "database": "PinsterDB",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "test": {
-    "database": "database_test",
+    "database": "pinsterDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "database_production",
+    "database": "pinsterDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

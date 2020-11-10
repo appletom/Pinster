@@ -2,22 +2,22 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users', [{
-      firstName: "Anna",
-      lastName: 'Smith',
-      email: "annasmith@yahoo.com",
-      username: "AnnaSmith",
+    await queryInterface.bulkInsert('comments', [{
+      text: 'love this!',
       createdAt: new Date(),
       updatedAt: new Date()
-  },{
-    firstName: "Jane",
-      lastName: 'Williams',
-      email: "janewilliams@example.com",
-      username: "beauty20",
+    },
+    {
+      text: 'nice work',
       createdAt: new Date(),
       updatedAt: new Date()
-  }],
-  {})
+    },
+    {
+      text: 'loved this project, so easy to do',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ], {});
   },
 
   down: async (queryInterface, Sequelize) => {
