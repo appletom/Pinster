@@ -1,4 +1,4 @@
-# Pinster [![GitHub contributors](https://img.shields.io/github/contributors/appletom/pinster) ![GitHub](https://img.shields.io/github/license/appletom/pinster)
+# Pinster ![GitHub contributors](https://img.shields.io/github/contributors/appletom/pinster) ![GitHub](https://img.shields.io/github/license/appletom/pinster)
 ```
 Your DIY Project Board!
 ```
