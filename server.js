@@ -10,6 +10,8 @@ const passport = require('passport');
 const blogs = require('./apiRoutes/blogPost')
 const db = require('./models')
 const session = require('express-session')
+const getBlogsJS = require('./apiRoutes/tumblr')
+
 
 // github authentication -- imports github auth
 const auth = require('./auth');
@@ -71,11 +73,15 @@ app.get('/search', (req, res) => {
 // app.get('/api/tmblrBlogs', (req,res)=>{
     
 // get tumblr api into user dashboard
-app.get('/user', (req, res) => {
-    res.render('/apiRoutes/tumblr', {
-        type: 'photo', 
-        description: description})
-})
+app.get('/dashboard', (req, res) => {
+    const { tags, blog } = req.body;
+    const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
+    fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20crochet`)
+    .then(result => result.json())
+    .then(data => res.json(data))
+    });
+
+
 
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
