@@ -1,3 +1,8 @@
+const express = require('express');
+const router = express.Router();
+
+
+
 module.exports = (router, fetch) => {
 
     // -----------------------------------------------------------------------------
@@ -10,6 +15,12 @@ module.exports = (router, fetch) => {
         .then(result => result.json())
         .then(data => res.json(data));
     });
+
+    router.get("/api/tumblr", async (req, res) => {
+        const apiBlogs = await db.router.findAll();
+        res.send(apiBlogs);
+    })
+
+
 };
 
-setTimeout (function(){}, 5000)

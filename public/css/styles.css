@@ -3,7 +3,6 @@
 
 }
 
-
 /* user info styling */
 /*background color for references-*/
 .user-profile-img-btn{
@@ -16,17 +15,19 @@
     text-align: center;
 }
 
-img {
-    border-radius: 50%;
+.img-div, img {
+    display: block;
+    border-radius: 20%;
     margin: 5%;
     float: left;
+    text-align: center;
 }
+
 
 .user-profile-info {
     /*background-color: lightgray;*/
     margin-top: 20%;
-    margin-left: 5%;
-    padding: 5%;
+
 }
 
 
@@ -39,7 +40,7 @@ img {
 
 
 .card-header, .btn-link {
-    background-color: #b484a3;
+    background-color: darkgray;
     color: white;
 }
 
