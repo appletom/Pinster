@@ -1,6 +1,5 @@
 //console.log('Hello world');
 
-const getBlogsJS = require('/public/app/index')
 
 
 async function getBlogs(){
@@ -43,23 +42,21 @@ function renderBlogs(blogArray){
 }
 getBlogs();
 
-module.exports = getBlogsJS
-
 // get comments
 
 // create new post on pop up form
-// function createPost() {
-//     document.getElementById("blogpost").style.display = "block";
-// }
+function createPost() {
+    document.getElementById("blogpost").style.display = "block";
+}
 
-// createPost();
+createPost();
 
 
 
 
 // cancel 'create new blog'
-// function closeForm() {
-//     document.getElementById("cancel-form").style.display = "none";
-// }
+function closeForm() {
+    document.getElementById("cancel-form").style.display = "none";
+}
 
-// closeForm();
+closeForm();

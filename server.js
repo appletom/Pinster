@@ -10,7 +10,7 @@ const fetch = require('node-fetch');
 const blogs = require('./apiRoutes/blogPost')
 const db = require('./models')
 const session = require('express-session')
-
+const request = require("request");
 // github authentication -- imports github auth
 const passport = require('./config/passport');
 const authRouter = require('./auth/index')
@@ -18,7 +18,7 @@ const authRouter = require('./auth/index')
 
 // github authentication -- imports github auth
 const auth = require('./auth');
-auth(app, passport);
+//auth(app, passport);
 const gitHubStrategy = require('./auth/strategy/github');
 passport.use(gitHubStrategy);
 
@@ -75,11 +75,21 @@ app.get('/details', (req, res) => {
     res.render('diy-details', { title: 'This DIY Project' })
 });
 
-app.get('/search', (req, res) => {
-    res.render('search', { title: 'Search Results', searchResults: [], data: { userQuery: req.params.userQuery } })
-});
+// app.get('/search', (req, res) => {
+//     res.render('search', { title: 'Search Results', searchResults: [], data: { userQuery: req.params.userQuery } })
+// });
 
-
+app.get('/search', (req,res)=>{
+    const tagName = req.query.search;
+    const url = 'https://api.tumblr.com/v2/tagged?tag=' + tagName + '&api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy'
+    request(url, (error, response, body) => {
+        if(!error && response.statusCode == 200) {
+            var results = JSON.parse(body);
+            res.render("search", {title: 'Search Results', results: [],data: results});
+            console.log(results)
+        }
+    })   
+})
 
 app.use('/auth', authRouter)
 
@@ -94,7 +104,7 @@ app.get('/projects', async (req, res) => {
     .then(data => res.render('projects',{data: data.response, title: 'Projects'}))
     });
 
-
+    //app.get('/projects', async (req, res) => {
 
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
