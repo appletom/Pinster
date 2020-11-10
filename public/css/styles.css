@@ -100,5 +100,5 @@
 
 /* blogs.ejs */
 .addToDash:hover {
-    box-shadow: white;
+    color:red;
 }
