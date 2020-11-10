@@ -9,6 +9,7 @@ With Pinster you can search for a DIY project, pin it to your ongoing project bo
 - Frontend:
     - HTML
     - CSS
+    - Javascript
     - [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
 - Backend:
     - [Node](https://nodejs.org/en/)
@@ -27,7 +28,7 @@ With Pinster you can search for a DIY project, pin it to your ongoing project bo
 ## Getting Started with Pinster
 * Install node
 - `npm install node `
-* Install dependencies and devdependencies
+* Install dependencies and devdependencies e.g express, nodemon
 * Edit package.json
 * Include a license
 * Make file layout including gitignore and .env
