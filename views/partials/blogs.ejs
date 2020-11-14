@@ -2,21 +2,21 @@
 <body>
 
 <% data.forEach( item => { %>
-    <p><%= item.title %></p>
+<div class="container addToDash">
+    <div class="row row-md-8" >
+        <div class="blog-box" width="750px">
 
+            <a href=" <%= item.post_url %>" ><h4 class="blog_name"><%= item.blog_name %></h4></a>
+            <%= item.description %>
+                <div class="iconOnImage">
+                <a href=" <%= item.url %>"><img src="<%= item.link_image %>"></a> 
+                <a href="#"><i class="fas fa-download"></a>
+                </div>
+        </div>
+    </div>
+</div>
 <% }) %>
 
-
-
-
 </body>
-
-<script>
-
-
-
-
-
-</script>
 
 </main>
