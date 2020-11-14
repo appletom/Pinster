@@ -5,7 +5,7 @@ const router = express.Router()
 
 // Callback
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
-    res.redirect('/dashboard')
+    res.redirect('/')
 
 })
 

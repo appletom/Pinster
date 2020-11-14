@@ -16,11 +16,6 @@ const passport = require('./config/passport');
 const authRouter = require('./auth/index')
 
 
-// github authentication -- imports github auth
-const auth = require('./auth');
-//auth(app, passport);
-const gitHubStrategy = require('./auth/strategy/github');
-passport.use(gitHubStrategy);
 
 app.use(session({
     secret: 'super secret',

@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 'use strict';
 const {
   Model
@@ -29,14 +28,13 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true
       }
     },
+    gitHubID: {
+      type: DataTypes.STRING
+    },
     username: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: true
     },
     //birthday: DataTypes.DATE, 
     diyInterests: DataTypes.STRING,
@@ -66,3 +64,4 @@ module.exports = (sequelize, DataTypes) => {
   // });
   return User;
 };
+

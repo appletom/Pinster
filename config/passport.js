@@ -1,6 +1,6 @@
 const passport = require('passport')
 const GitHubStrategy = require('passport-github').Strategy
-const User = require('../models/user')
+const { User } = require('../models');
 
 // Setting up Passport and the passport strategy
 passport.use(new GitHubStrategy({
@@ -12,7 +12,7 @@ passport.use(new GitHubStrategy({
     // This is the function that returns a user profile after someone
     // logs into github. You should save the profile to your database HERE
     async function (accessToken, refreshToken, profile, cb) {
-        // console.log("****PROFILE\n" + JSON.stringify(profile))
+        console.log("****PROFILE\n" + JSON.stringify(profile))
 
         // ASIDE: Access Tokens are super important! Treat them like passwords (never store in plain text)
         // You can use this to talk to the Github API
@@ -22,12 +22,12 @@ passport.use(new GitHubStrategy({
         // 3. Use the model here - store the use info
 
         // Check if the user already exists, i.e. they logged in before.
-        let user = await User.findOne({ where: { username: parseInt(profile.username) } })
+        let user = await User.findOne({ where: { gitHubID: parseInt(profile.id) } })
 
         if (!user) {
             // User doesn't exist - make a new database entry
             user = await User.build({
-                id: parseInt(profile.id),
+                gitHubID: parseInt(profile.id),
                 username: profile.username,
                 createAt: new Date(),
                 updatedAt: new Date()
@@ -44,13 +44,13 @@ passport.use(new GitHubStrategy({
 passport.serializeUser(function (user, done) {
     // What goes INTO the session here; right now it's everything in User
     // this should really only be the User ID
-    done(null, user.username);
+    done(null, user.id);
 });
 
-passport.deserializeUser(async function (username, done) {
+passport.deserializeUser(async function (id, done) {
     //This is looking up the User in the database using the information from the session "id"
     // Convert the ID into the User object.
-    const user = await User.findByPk(username)
+    const user = await User.findByPk(id)
 
     done(null, user);
 
