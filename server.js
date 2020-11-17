@@ -14,7 +14,7 @@ const request = require("request");
 // github authentication -- imports github auth
 const passport = require('./config/passport');
 const authRouter = require('./auth/index')
-
+const mainRouter = require('./apiRoutes/main')
 
 
 //initialize passport
@@ -24,7 +24,7 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use('/', mainRouter)
 
 //simple server running on PORT 3000
 const port = process.env.PORT
@@ -74,9 +74,9 @@ app.get('/search', (req, res) => {
     const url = 'https://api.tumblr.com/v2/tagged?tag=' + tagName + '&api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy'
     request(url, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-            var results = JSON.parse(body);
-            res.render("search", { title: 'Search Results', results: [], data: results });
-            console.log(results)
+            var data = JSON.parse(body);
+            res.render("search", { title: 'Search Results', data: [], data: results });
+            console.log(data)
         }
     })
 })
@@ -86,7 +86,7 @@ app.use('/auth', authRouter)
 
 // get tumblr api into user dashboard
 app.get('/projects', async (req, res) => {
-
+pm 
     const { tags, blog } = req.body;
     const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
     await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20ideas`)
