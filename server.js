@@ -75,7 +75,7 @@ app.get('/search', (req, res) => {
     request(url, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             var results = JSON.parse(body);
-            res.render("search", { title: 'Search Results', results: [], data: results });
+            res.render("search", { title: 'Search Results', results: results.response, data: results});
             console.log(results)
         }
     })

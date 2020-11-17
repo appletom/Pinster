@@ -32,12 +32,17 @@
 }
 
 
+ul, li {
+    list-style-type: none;
+}
+
 /* in-progress projects */
 .current-user-projects {
     text-align: center;
 }
 
 .add-new-div {
+    display: flex;
     padding: 10%;
 }
 
@@ -51,7 +56,6 @@
 
 .deletebtn:hover {
     font-weight:bold;
-    -webkit-transform: scale(1.1); 
     color: red;
 }
 
@@ -62,11 +66,14 @@
 
 .completedbtn:hover {
     font-weight:bold;
-    -webkit-transform: scale(1.1); 
 }
 
 .add-new-div {
-    display: none;
+    display: flex;
+}
+
+.new-project-content {
+    flex: 1;
 }
 
 .new-project-class {
@@ -74,13 +81,11 @@
     background-color: transparent;
 }
 
-.new-project-content {
-    a
-}
+
 .new-project-img {
 
     width: 25%;
-    margin-left: 35%;
+
 }
 
 
@@ -102,3 +107,19 @@
 .addToDash:hover {
     color:red;
 }
+
+/* search bar */
+.search-title {
+    text-align: center;
+}
+
+.search-list, .image{
+    text-align: center;
+    padding: 5% 15% 0;
+}
+
+
+.blog-link, a:hover {
+    text-decoration: none;
+}
+
