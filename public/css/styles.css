@@ -72,20 +72,16 @@ ul, li {
     display: flex;
 }
 
-.new-project-content {
-    flex: 1;
-}
 
-.new-project-class {
+.new-project-content {
     text-align: center;
     background-color: transparent;
 }
 
 
 .new-project-img {
-
     width: 25%;
-
+    margin-left: 35%;
 }
 
 
