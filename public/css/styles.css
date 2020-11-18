@@ -1,156 +1,121 @@
 * {
-    color: #20B2AA;
+    color: slategray;
+
 }
 
-body, html {
-    height: 100%;
-    width: 100%;
-}
-
-.nav-link:hover {
-  background-color: silver;
-}
-
-.container {
-  height: 50px;
-  width: 100%;
-  padding: 3px;
-}
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  text-align: center;
-  margin: 5%;
+/* user info styling */
+/*background color for references-*/
+.user-profile-img-btn{
+    /*background-color: silver;*/
+    margin-bottom: 10%;
+    margin-left: 25%;
 }
 
 
-
-.column {
-  float: left;
-  padding: 5%;
+.img-div, img {
+    display: block;
+    border-radius: 20%;
+    margin: 5%;
 }
 
-/* Style card for button */
-.blog {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  padding: 2% 5%;
-}
 
-/* Style New Post button */
-.open-btn {
-  display: block;
-  text-align: center;
+.user-profile-info {
+    /*background-color: lightgray;*/
+    margin-top: 20%;
 
 }
 
 
-.open-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
- 
+/* all blogs */
+.blog_name {
+    text-align: center;
 }
 
 
-/* After opening new blog */
-.blog-container {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
-  text-align: center;
-
-
+ul, li {
+    list-style-type: none;
 }
 
-form {
-  margin: 0 auto;  
-
+/* in-progress projects */
+.current-user-projects {
+    text-align: center;
 }
 
-/* On mouse-over, add a deeper shadow */
-.form-popup:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.add-new-div {
+    display: flex;
+    padding: 10%;
 }
 
-
-.form-container {
-  transition: 0.3s;
-  border-radius: 5px;
-  padding: 5%;
-  margin: 4% auto;
-
+.h-100:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
 }
 
-.dateTime {
-  text-align: left;
+.deletebtn {
+    margin: 5%;
 }
 
-
-  /* In order to define widths */
-label, input {
-  width: 100%;
-  display: inline-block;
-  clear: both;
-  margin: 2% auto;
+.deletebtn:hover {
+    font-weight:bold;
+    color: red;
 }
 
-  /* Positions the label text beside the input */
-label {
-  text-align: left;
-  clear: both;
+.completedbtn {
+    float: right;
+    margin: 5%;    
 }
 
-.blog-input {
-  top: 0;
-  height: 300px;
-  margin-bottom: 5%;
-  width: 100%;
-  height: 200px;
+.completedbtn:hover {
+    font-weight:bold;
 }
 
-.upload-btn{
-  display: inline-block;
-  float: left;
-}
-
-.upload-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-
+.add-new-div {
+    display: flex;
 }
 
 
-.post-btn {
-  display: inline-block;
-  float: right; 
-}
-
-.post-btn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-}
-
-.closebtn {
-  display: flex;
-  float: right; 
-}
-
-.closebtn:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
-  transition: 0.3s;
+.new-project-content {
+    text-align: center;
+    background-color: transparent;
 }
 
 
-
-.cancel-post:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
+.new-project-img {
+    width: 25%;
+    margin-left: 35%;
 }
 
-/*
-.browse-projects {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding: 2px;
-    margin: 2%;
+
+/* completed projects */
+.completed-user-projects {
+    margin: 2% auto;
 }
+
+
+/* footer */
+
+.credits {
+    text-align: center;
+    font-size: small;
+}
+
+
+/* blogs.ejs */
+.addToDash:hover {
+    color:red;
+}
+
+/* search bar */
+.search-title {
+    text-align: center;
+}
+
+.search-list, .image{
+    text-align: center;
+    padding: 5% 15% 0;
+}
+
+
+.blog-link, a:hover {
+    text-decoration: none;
+}
+

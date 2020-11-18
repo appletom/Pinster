@@ -2,88 +2,122 @@
 require("dotenv").config();
 
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const tumblrApi = require('./apiRoutes/tumblr');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const passport = require('passport');
-const db = require('./PinsterDB/models')
+//const passport = require('passport');
+const blogs = require('./apiRoutes/blogPost')
+const db = require('./models')
+const session = require('express-session')
+const request = require("request");
 // github authentication -- imports github auth
-const auth = require('./auth');
-auth(app, passport);
+const passport = require('./config/passport');
+const authRouter = require('./auth/index')
 
-//client needs button that calls server (auth/github) and sees github
-const gitHubStrategy = require('./auth/strategy/github');
-passport.use(gitHubStrategy);
 
+
+//initialize passport
+app.use(session({
+    secret: 'super secret',
+    cookie: { maxAge: 60000 }
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 //simple server running on PORT 3000
-const port = 3000
+const port = process.env.PORT
 
+//SEQUELIZE TEST
+db.sequelize.sync();
 
 // Static files setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use("/app", express.static(__dirname + "/public/app"));
 app.use(express.static('public'));
-//app.use("/app", express.static(__dirname + "/public/app"));
 app.use("/css", express.static(__dirname + "/public/css"));
-//app.use("/", express.static(__dirname + "/public/html"));
 app.use("/img", express.static(__dirname + "public/img"));
 
+
 // Set templating engine
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
-app.set('layout', './index');
 
 //EJS Layout Navigation
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Pinster'})
+    res.render('index', { title: 'Pinster' })
 });
 
 app.get('/about-us', (req, res) => {
-    res.render('about-us', {title: 'About The Pinster Team'})
+    res.render('about-us', { title: 'About The Pinster Team' })
 });
 
 app.get('/dashboard', (req, res) => {
-    res.render('dashboard', {title: 'Your Dashboard'})
+    res.render('dashboard', { title: 'Your Dashboard', loggedIn: true, username: '' })
 });
 
 app.get('/login', (req, res) => {
-    res.render('login', {title: 'Login'})
+    res.render('login', { title: 'Login' })
 });
 
 app.get('/details', (req, res) => {
-    res.render('diy-details', {title: 'Search Results'})
+    res.render('diy-details', { title: 'This DIY Project' })
 });
+
+// app.get('/search', (req, res) => {
+//     res.render('search', { title: 'Search Results', searchResults: [], data: { userQuery: req.params.userQuery } })
+// });
+
+app.get('/search', (req, res) => {
+    const tagName = req.query.search;
+    const url = 'https://api.tumblr.com/v2/tagged?tag=' + tagName + '&api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy'
+    request(url, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            var results = JSON.parse(body);
+            res.render("search", { title: 'Search Results', results: results.response, data: results});
+            console.log(results)
+        }
+    })
+})
+
+app.use('/auth', authRouter)
+
+
+// get tumblr api into user dashboard
+app.get('/projects', async (req, res) => {
+
+    const { tags, blog } = req.body;
+    const params = `${blog ? "blog=" + blog : ''}${tags ? "&tags=" + tags : ''}`;
+    await fetch(`https://api.tumblr.com/v2/tagged?api_key=N0uGR0dLh0MPjWi3Hw2HXnn6ZLoJeGZUo84i9iATR9JnoHzhOA&tag=diy%20ideas`)
+        .then(result => result.json())
+        .then(data => res.render('projects', { data: data.response, title: 'Projects' }))
+
+
+});
+
+//app.get('/projects', async (req, res) => {
 
 //SEQUELIZE TEST
 // db.sequelize.authenticate().then( ()=> {
 //     console.log("Database connected")
 // }).catch( ()=>{
-//     console.log("There was an errro")
-// })
-db.sequelize.sync().then( () => {
-    console.log("Create all tables in Databases")
-});
+//     console.log("There was an error")
 
+// })
 
 
 tumblrApi(app, fetch);
+app.use('/apiRoutes/tumblr', tumblrApi)
 
 //connect server to api routers
 const apiRouters = require("./apiRoutes/routers");
-//const router = require("./apiRoutes/routers");
+const router = require("./apiRoutes/routers");
 app.use("/apiRoutes/routers", apiRouters)
 const upload = require('./apiRoutes/imgUpload')
 app.use("/apiRoutes/imgUpload", upload)
-const blogPost = require('./apiRoutes/BlogPost')
+app.use('/apiRoutes/posts', blogs);
 
-app.use('/apiRoutes/posts', blogPost);
-
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });
